@@ -2,7 +2,7 @@
 
 Aplikacion web mobile (PWA) që i lidh klientët në Kosovë me puntorë të shërbimeve të shtëpisë (hidraulik, elektricist, bojaxhi).
 
-**Autori:** [Emri Mbiemri] · Programimi për Pajisje Mobile 2026/2027, AAB
+**Autori:** Lum Bullatovci · Programimi për Pajisje Mobile 2026/2027, AAB
 
 ## Çka bën
 - Shfaq listën e puntorëve me çmim dhe vlerësim, me filtër sipas profesionit.
@@ -12,7 +12,3 @@ Aplikacion web mobile (PWA) që i lidh klientët në Kosovë me puntorë të sh�
 ## Teknologjia
 Next.js, TypeScript, Tailwind, Neon (PostgreSQL), Auth.js
 
-## Si ta nisësh
-1. `npm install`
-2. Krijo `.env.local` me `DATABASE_URL`, `AUTH_SECRET`, `AUTH_GITHUB_ID`, `AUTH_GITHUB_SECRET`
-3. `npm run dev` dhe hape `http://localhost:3000`
