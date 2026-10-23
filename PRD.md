@@ -1,6 +1,6 @@
 # Kosovo Handy: PRD
 
-**Autori:** [Emri Mbiemri] · **Indeksi:** [numri i indeksit]
+**Autori:** Lum Bullatovci · **Indeksi:** RE-37403/24
 
 ## 1. Ideja
 Kosovo Handy është aplikacion mobile (PWA) që i lidh klientët në Kosovë
