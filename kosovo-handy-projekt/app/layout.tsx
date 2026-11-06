@@ -17,6 +17,10 @@ export const metadata: Metadata = {
   title: "Kosovo Handy",
   description: "Puntorë të shërbimeve të shtëpisë në Kosovë",
   manifest: "/manifest.webmanifest",
+  icons: {
+    icon: "/icon.png",
+    apple: "/icon.png",
+  },
 };
 
 export const viewport: Viewport = {
