@@ -29,8 +29,8 @@ export default function Pwa() {
   }, []);
 
   return (
-    <aside style={{ padding: "1rem" }}>
-      <a href="/offline.html">Lista për lexim pa internet</a>
-    </aside>
+    <a href="/offline.html" className="pwa-link">
+      Lista offline
+    </a>
   );
 }

@@ -1,5 +1,6 @@
 import { neon } from "@neondatabase/serverless";
 import Link from "next/link";
+import Logo from "@/components/Logo";
 
 export default async function KerkesaUDergua({
   searchParams,
@@ -22,7 +23,10 @@ export default async function KerkesaUDergua({
   }
 
   return (
-    <main className="p-4 max-w-md mx-auto text-center">
+    <main className="page-shell text-center">
+      <div className="site-header text-left">
+        <Logo />
+      </div>
       <h1 className="text-2xl font-bold mt-10">Kerkesa u ruajt ✅</h1>
       <p className="mt-2">
         Kerkesa jote u ruajt ne sistem. Puntori nuk njoftohet automatikisht ende,
@@ -32,7 +36,7 @@ export default async function KerkesaUDergua({
       {name && phone && (
         <a
           href={`tel:${phone}`}
-          className="inline-block mt-6 bg-blue-600 text-white px-4 py-2 rounded-lg"
+          className="button button-primary inline-block mt-6"
         >
           Telefono {name}
         </a>

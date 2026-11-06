@@ -55,7 +55,7 @@ export default function VendiPunes() {
         type="button"
         onClick={perdorVendndodhjen}
         disabled={gjendja === "loading"}
-        className="border rounded-lg px-3 py-1"
+        className="button button-secondary"
       >
         Perdor vendndodhjen time
       </button>

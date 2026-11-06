@@ -2,6 +2,7 @@ import { neon } from "@neondatabase/serverless";
 import { notFound, redirect } from "next/navigation";
 import Link from "next/link";
 import { auth } from "@/auth";
+import Logo from "@/components/Logo";
 
 export default async function NdryshoPage({
   params,
@@ -23,7 +24,10 @@ export default async function NdryshoPage({
 
   if (h.owner_login !== login) {
     return (
-      <main className="p-4 max-w-md mx-auto">
+      <main className="page-shell">
+        <div className="site-header">
+          <Logo />
+        </div>
         <p>Nuk ke leje ta ndryshosh këtë profil.</p>
         <Link href="/" className="text-blue-500">
           ← Kthehu
@@ -50,7 +54,10 @@ export default async function NdryshoPage({
   }
 
   return (
-    <main className="p-4 max-w-md mx-auto">
+    <main className="page-shell">
+      <div className="site-header">
+        <Logo />
+      </div>
       <Link href={`/puntori/${numId}`} className="text-blue-500">
         ← Kthehu
       </Link>

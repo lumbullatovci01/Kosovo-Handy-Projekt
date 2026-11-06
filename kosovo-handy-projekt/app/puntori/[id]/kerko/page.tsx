@@ -3,6 +3,7 @@ import { notFound, redirect } from "next/navigation";
 import Link from "next/link";
 import VendiPunes from "@/components/VendiPunes";
 import DergoButoni from "@/components/DergoButoni";
+import Logo from "@/components/Logo";
 
 const MESAZHET_GABIMI: Record<string, string> = {
   fusha: "Plotesoji te gjitha fushat. Hapesirat bosh nuk llogariten.",
@@ -60,7 +61,10 @@ export default async function KerkoPage({
   const mesazhi = gabim ? MESAZHET_GABIMI[gabim] : undefined;
 
   return (
-    <main className="p-4 max-w-md mx-auto">
+    <main className="page-shell">
+      <div className="site-header">
+        <Logo />
+      </div>
       <Link href={`/puntori/${numId}`} className="text-blue-500">← Kthehu</Link>
       <h1 className="text-2xl font-bold mt-3">Kerko sherbim</h1>
       <p className="mb-4">{h.name} · {h.trade}</p>

@@ -18,9 +18,12 @@ export default async function Home({
   const chip = "border rounded-full px-3 py-1 text-sm";
 
   return (
-    <main className="p-4 max-w-md mx-auto">
+    <main className="page-shell">
       <AuthBar />
-      <h1 className="text-2xl font-bold mb-4">Kosovo Handy</h1>
+      <div className="mb-5">
+        <h1 className="text-2xl font-bold">Gjej ndihmën që të duhet</h1>
+        <p className="muted mt-1">Puntorë të besueshëm pranë teje.</p>
+      </div>
 
       <div className="flex flex-wrap gap-2 mb-4">
         <Link
@@ -46,13 +49,13 @@ export default async function Home({
         <Link
           key={h.id}
           href={`/puntori/${h.id}`}
-          className="block border rounded-lg p-3 mb-3"
+          className="card mb-3"
         >
-          <div className="font-semibold">{h.name}</div>
-          <div>
+          <div className="font-semibold text-lg">{h.name}</div>
+          <div className="muted">
             {h.trade} · {h.city}
           </div>
-          <div>
+          <div className="mt-2 font-medium">
             {h.price_per_hour}€/orë · ⭐ {h.rating}
           </div>
         </Link>

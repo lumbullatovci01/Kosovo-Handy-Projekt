@@ -2,6 +2,7 @@ import { neon } from "@neondatabase/serverless";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { auth } from "@/auth";
+import Logo from "@/components/Logo";
 
 export default async function PuntoriPage({
   params,
@@ -22,7 +23,10 @@ export default async function PuntoriPage({
   const isOwner = !!login && login === h.owner_login;
 
   return (
-    <main className="p-4 max-w-md mx-auto">
+    <main className="page-shell">
+      <div className="site-header">
+        <Logo />
+      </div>
       <Link href="/" className="text-blue-500">
         ← Kthehu
       </Link>
@@ -34,22 +38,24 @@ export default async function PuntoriPage({
         {h.price_per_hour}€/orë · ⭐ {h.rating}
       </p>
 
-      <a
-        href={`tel:${h.phone}`}
-        className="inline-block mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg"
-      >
-        Telefono
-      </a>
-      <Link
-        href={`/puntori/${h.id}/kerko`}
-        className="inline-block mt-4 ml-2 border px-4 py-2 rounded-lg"
-      >
-        Kërko shërbim
-      </Link>
+      <div className="mt-4 flex flex-wrap gap-2">
+        <a
+          href={`tel:${h.phone}`}
+          className="button button-primary"
+        >
+          Telefono
+        </a>
+        <Link
+          href={`/puntori/${h.id}/kerko`}
+          className="button button-secondary"
+        >
+          Kërko shërbim
+        </Link>
+      </div>
       {isOwner && (
         <Link
           href={`/puntori/${h.id}/ndrysho`}
-          className="inline-block mt-4 ml-2 border px-4 py-2 rounded-lg"
+          className="button button-secondary mt-2 inline-block"
         >
           Ndrysho çmimin
         </Link>

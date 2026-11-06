@@ -2,6 +2,7 @@ import { neon } from "@neondatabase/serverless";
 import { notFound, redirect } from "next/navigation";
 import Link from "next/link";
 import { auth } from "@/auth";
+import Logo from "@/components/Logo";
 
 export default async function KerkesatPage({
   params,
@@ -23,7 +24,10 @@ export default async function KerkesatPage({
 
   if (h.owner_login !== login) {
     return (
-      <main className="p-4 max-w-md mx-auto">
+      <main className="page-shell">
+        <div className="site-header">
+          <Logo />
+        </div>
        <p>Nuk ke leje per te pare kerkesat e ketij profili.</p>
         <Link href="/" className="text-blue-500">← Kthehu</Link>
       </main>
@@ -39,7 +43,10 @@ export default async function KerkesatPage({
   `;
 
   return (
-    <main className="p-4 max-w-md mx-auto">
+    <main className="page-shell">
+      <div className="site-header">
+        <Logo />
+      </div>
       <Link href={`/puntori/${numId}`} className="text-blue-500">← Kthehu</Link>
       <h1 className="text-2xl font-bold mt-3">Kerkesat per {h.name}</h1>
 
