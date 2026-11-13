@@ -16,14 +16,12 @@ export default async function Home({
         SELECT * FROM handymen
         WHERE trade = ${profesioni}
         ORDER BY rating DESC NULLS LAST
-        LIMIT 3
+        LIMIT 5
       `
     : await sql`
-        SELECT h.* FROM handymen h
-        ORDER BY
-          (SELECT COUNT(*) FROM requests r WHERE r.handyman_id = h.id) DESC,
-          h.rating DESC NULLS LAST
-        LIMIT 3
+        SELECT * FROM handymen
+        ORDER BY rating DESC NULLS LAST
+        LIMIT 5
       `;
 
   const chip = "border rounded-full px-3 py-1 text-sm";
@@ -57,7 +55,7 @@ export default async function Home({
       </div>
 
       <h2 className="font-semibold mb-2">
-        {profesioni ? `${profesioni}: me te vleresuarit` : "Me te kerkuarit"}
+        {profesioni ? `${profesioni}: 5 me te vleresuarit` : "5 me te vleresuarit"}
       </h2>
 
       {handymen.map((h) => (
