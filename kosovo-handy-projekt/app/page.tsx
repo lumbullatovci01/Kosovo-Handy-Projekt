@@ -12,8 +12,19 @@ export default async function Home({
 
   const trades = await sql`SELECT DISTINCT trade FROM handymen ORDER BY trade`;
   const handymen = profesioni
-    ? await sql`SELECT * FROM handymen WHERE trade = ${profesioni} ORDER BY rating DESC`
-    : await sql`SELECT * FROM handymen ORDER BY rating DESC`;
+    ? await sql`
+        SELECT * FROM handymen
+        WHERE trade = ${profesioni}
+        ORDER BY rating DESC NULLS LAST
+        LIMIT 3
+      `
+    : await sql`
+        SELECT h.* FROM handymen h
+        ORDER BY
+          (SELECT COUNT(*) FROM requests r WHERE r.handyman_id = h.id) DESC,
+          h.rating DESC NULLS LAST
+        LIMIT 3
+      `;
 
   const chip = "border rounded-full px-3 py-1 text-sm";
 
@@ -44,6 +55,10 @@ export default async function Home({
           </Link>
         ))}
       </div>
+
+      <h2 className="font-semibold mb-2">
+        {profesioni ? `${profesioni}: me te vleresuarit` : "Me te kerkuarit"}
+      </h2>
 
       {handymen.map((h) => (
         <Link

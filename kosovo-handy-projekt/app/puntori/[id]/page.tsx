@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { auth } from "@/auth";
 import Logo from "@/components/Logo";
+import FavoriteButton from "@/components/FavoriteButton";
 
 export default async function PuntoriPage({
   params,
@@ -21,6 +22,15 @@ export default async function PuntoriPage({
   const session = await auth();
   const login = (session?.user as { login?: string } | undefined)?.login;
   const isOwner = !!login && login === h.owner_login;
+
+  let isFavorite = false;
+  if (login) {
+    const fav = await sql`
+      SELECT 1 FROM favorites
+      WHERE user_login = ${login} AND handyman_id = ${numId}
+    `;
+    isFavorite = fav.length > 0;
+  }
 
   return (
     <main className="page-shell">
@@ -52,6 +62,15 @@ export default async function PuntoriPage({
           Kërko shërbim
         </Link>
       </div>
+
+      {login ? (
+        <div className="mt-2">
+          <FavoriteButton handymanId={numId} initialFavorite={isFavorite} />
+        </div>
+      ) : (
+        <p className="mt-2">Hyr me GitHub per te ruajtur te preferuarat.</p>
+      )}
+
       {isOwner && (
         <Link
           href={`/puntori/${h.id}/ndrysho`}
